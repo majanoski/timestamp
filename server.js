@@ -21,7 +21,7 @@ app.get('/:time', function(req, res){
     var date = {unix: null, natural: null};
     
     function getNaturalMonth(dateParam) {
-        var month;
+        var month = null;
         switch(dateParam) {
             case 0: month = "January"; break;
             case 1: month = "February"; break;
@@ -53,7 +53,11 @@ app.get('/:time', function(req, res){
     
   
     function getNaturalDate(dateParam) {
-        return getNaturalMonth(dateParam.getMonth()) + " " + dateParam.getDate() + ", " + dateParam.getFullYear();
+        if(getNaturalMonth(dateParam.getMonth())) {
+            return getNaturalMonth(dateParam.getMonth()) + " " + dateParam.getDate() + ", " + dateParam.getFullYear();
+        } else {
+            return null;
+        }
     }
     
     if(getUnixDate(passedDate)) {
