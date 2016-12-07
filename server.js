@@ -71,6 +71,6 @@ app.get('/:time', function(req, res){
     res.send(date);
 });
 
-app.listen('3000', function(){
-    console.log('Started up on 3000');
+app.listen(process.env.PORT || '8080', function(){
+    console.log('Started up on '+ process.env.PORT);
 });
