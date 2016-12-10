@@ -72,5 +72,5 @@ app.get('/:time', function(req, res){
 });
 
 app.listen(process.env.PORT || '8080', function(){
-    console.log('Started up on '+ process.env.PORT);
+    console.log('Started up on env port or 8080');
 });
